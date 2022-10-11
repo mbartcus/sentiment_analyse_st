@@ -18,10 +18,7 @@ if submit_button:
 
         result = requests.get("https://sentimentanalyseapi.herokuapp.com/api", params={"my_tweet": my_tweet}).json()
 
-        sentiment = result['sentiment']
+        sentiment = int(result['sentiment'])
         prob = float(result['prob'])
 
-        if sentiment==1:
-            st.success('This is a {:.2f}% positive tweet :thumbsup:'.format(prob*100))
-        else:
-            st.error('This is a {:.2f}% negative tweet :thumbsdown:'.format(prob*100))
+        st.success('This is a {:.2f}% {sentiment} tweet :thumbsup:'.format(sentiment, prob*100))
