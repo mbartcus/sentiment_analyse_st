@@ -21,4 +21,4 @@ if submit_button:
         sentiment = result['sentiment']
         prob = float(result['prob'])
 
-        st.success('This is a {:.2f}% {sentiment} tweet :thumbsup:'.format(prob*100, sentiment))
+        st.success('This is a {0}% {1} tweet :thumbsup:'.format(round(prob*100, 2), sentiment))
